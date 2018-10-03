@@ -2,6 +2,7 @@ package com.example.a1701357885.gosport;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -17,6 +18,8 @@ import static android.app.ProgressDialog.show;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private LoginActivity loginActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,16 +56,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.exit)
         {
             Toast.makeText(this, "This is Exit", Toast.LENGTH_SHORT).show();
+
         }
 
         if (id == R.id.Sign_In)
         {
             Toast.makeText(this, "This is Sign In", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this.loginActivity,
+                    MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return false;
     }
-
 
 }
 
